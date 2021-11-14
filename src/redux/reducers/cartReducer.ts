@@ -26,7 +26,7 @@ export const cartReducer = (state = initialState, action: CartAction): CartState
                 state.totalPrice = +(state.totalPrice - state.lines[currPosition].regular_price.value).toFixed(2);
                 state.lines.splice(currPosition, 1);
             }
-            return state;
+            return {...state};
         case CartActionTypes.INC_COUNT_PRODUCT:
             currPosition = state.lines.findIndex((product) => product.id === action.payload);
             if (currPosition !== -1) {
@@ -34,7 +34,7 @@ export const cartReducer = (state = initialState, action: CartAction): CartState
                 state.totalPrice = +(state.totalPrice + state.lines[currPosition].regular_price.value).toFixed(2);
                 state.lines[currPosition].quantity++;
             }
-            return state;
+            return {...state};
         case CartActionTypes.DEC_COUNT_PRODUCT:
             currPosition = state.lines.findIndex((product) => product.id === action.payload);
             if (currPosition !== -1) {
@@ -46,7 +46,7 @@ export const cartReducer = (state = initialState, action: CartAction): CartState
                     state.lines[currPosition].quantity--;
                 }
             }
-            return state;
+            return {...state};
         default:
             return state;
     }
