@@ -10,11 +10,13 @@ interface CartItemProps {
 }
 const CartItem: FC<CartItemProps> = ({ item, brand }) => {
     const { incCountProductCart, DecCountProductCart, removeProductCart } = useActions()
+    let imgPath = require(`../assets${item.image}`)?.default;
     return (
         <div className="cart-body-item">
             <div className="cart-body-item-pciture-block">
-                <img className="cart-body-item-pciture-block_img" src={require(`../assets${item.image}`)?.default}
-                    alt={require(`../assets${item.image}`)?.default} />
+                <div className="cart-body-item-pciture-block_img" style={{background: `url(${imgPath}) center center / contain no-repeat`}}></div>
+                {/* <img className="cart-body-item-pciture-block_img" src={require(`../assets${item.image}`)?.default}
+                    alt={require(`../assets${item.image}`)?.default} /> */}
             </div>
             <div>{brand} / {item.title}</div>
             <div>{item.regular_price.currency} {item.regular_price.value}</div>
