@@ -19,7 +19,7 @@ const CartItem: FC<CartItemProps> = ({ item, brand }) => {
             <div>{brand} / {item.title}</div>
             <div>{item.regular_price.currency} {item.regular_price.value}</div>
             <ProductCounter count={item.quantity} plusCount={() => incCountProductCart(item.id)} minusCount={() => DecCountProductCart(item.id)} />
-            <div>{item.regular_price.currency} {item.regular_price.value * item.quantity}</div>
+            <div>{item.regular_price.currency} {(item.regular_price.value * item.quantity).toFixed(2)}</div>
             <button onClick={() => removeProductCart(item.id)} className="cart-body-item-remove_button">
                 <TrashIcon />
             </button>
