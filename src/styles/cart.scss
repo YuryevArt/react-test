@@ -22,8 +22,20 @@
         grid-template-columns: 0.4fr 1fr 0.4fr 0.4fr 0.4fr 0.1fr;
         align-items: center;
         justify-items: center;
+        @media (max-width: 500px){
+            display: none;
+        }
         &.head {
             border: none;
+        }
+        &.--mobile{
+            display: none;
+            grid-template-columns: 0.2fr 1fr 0.2fr;
+            padding-bottom: 10px;
+            @media (max-width: 500px){
+                display: grid;
+
+            }
         }
         &-pciture-block {
             width: 100%;
@@ -68,6 +80,11 @@
                 }
             }
         }
+        &-total.--mobile{
+            width: 100%;
+            text-align: left;
+            padding-left: 15px;
+        }
         &-remove_button {
             appearance: none;
             border: 0;
@@ -86,6 +103,9 @@
         margin: 15px;
         font-size: larger;
         text-align: right;
+        @media (max-width: 500px) {
+            text-align: left;
+        }
     }
 }
 
